@@ -1,0 +1,53 @@
+
+   <%= form_tag create_glucose_reading_path do %>
+   
+   <% if !notice.blank? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clucose_reading.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <li><%= notice %></li>
+    
+      </ul>
+    </div>
+  <% end %>
+<table>
+  <tbody>
+      <tr><H2>Enter Patient Reading</H2></tr>
+      <tr>
+        <td><label>Name</label></td>
+        <td><%= @clucose_reading.name %></td>
+        <%= hidden_field :patient,:id, :value =>@clucose_reading.id%>
+        </tr>
+        <tr>
+        <td><label>Address</label></td>
+        <td><%= @clucose_reading.address %></td>
+        </tr>
+        <tr>
+        <td><label>Age</label></td>
+        <td><%= @clucose_reading.age %></td>
+        </tr>
+        <tr>
+        <td><label>Phone No</label></td>
+        <td><%= @clucose_reading.phone_no %></td>
+        </tr>
+        <tr>
+          <td><label>Enter Reading</label></td>
+          <td><label><%= text_field :glucose, :reading %></label></td>
+          
+        </tr>
+        <tr>
+          <td align="center"> <%= submit_tag "Submit",:class => "btn btn-success navbar-right"%></td>
+        </tr>
+        <tr>
+        <td><%= link_to 'Back', root_path %></td>
+        </tr>
+        
+      </tr>
+  
+   <%end%>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BloodGlucose</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in? %>
+<nav class="top-bar">
+<ul class="title-area">
+<li class="name">
+<% if user_signed_in? %>
+<h1><%= link_to "Signed in as #{current_user.email}. Not you?", root_path %></a></h1>
+<% else %>
+<h1><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></h1>
+<% end %>
+<%end%>
+<%= yield %>
+
+</body>
+</html>

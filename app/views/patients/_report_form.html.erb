@@ -1,0 +1,31 @@
+<table class="table table-striped ng-scope">
+    <tr>
+        <th>Patient Id</th>
+        <th>Patient Name</th>
+        <th>Patient Address</th>
+        <th>Patient PhoneNo</th>
+        <th>GlucoseReading</th>
+        
+    </tr>
+
+    <% reports.each do |glucose| %>
+    <%patient = glucose.patient%>
+      <tr>
+          <td>
+              <%= patient.id %>
+          </td>
+          <td>
+              <%= patient.name %>
+          </td>
+          <td>
+              <%= patient.address %>
+          </td>
+          <td>
+              <%= patient.phone_no %>
+          </td>
+          <td>
+              <%= glucose.reading %>
+          </td>
+          <% end %>
+    </table>
+    <tr> <td><%= link_to 'Back', root_path %></td></tr>

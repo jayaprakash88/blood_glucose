@@ -1,0 +1,52 @@
+<%= javascript_include_tag "application" %>
+<%= form_tag show_month_wise_patients_path,:method => :get,:remote => true do %>
+
+<table class="table table-responsive">
+<tr>
+<div class="form-group">
+   <%= label "start","date", "Start Date:",:class=>"control-label col-md-2" %>
+	 <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                    <%= text_field "start","date",:class => "form-control datepicker" %>
+                      <span class="input-group-addon glyphicon glyphicon-calendar" style = "top: 0px;"></span>
+                  </div>
+                   </div>
+                    </div>
+                     </div>
+                     </div>
+                    <div class="form-group">
+   <%= label "end","date", "End Date:",:class=>"control-label col-md-2" %>
+                     <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                    <%= text_field "end","date",:class => "form-control datepicker" %>
+                      <span class="input-group-addon glyphicon glyphicon-calendar" style = "top: 0px;"></span>
+                  </div>
+                   </div>
+                    </div>
+                     </div>
+                      </div>
+                     </tr>
+                     <tr>
+                     <div class="form-group">
+                       <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                     <%= submit_tag "search" ,:class => "btn btn-success navbar-right"%>
+                     </div>
+                   </div>
+                    </div></div>
+                     </div></tr>
+</table>
+  
+<% end %>
+<br/><br/><br/>
+<div id="alter_select" class="row">
+<center><h2>Date Wise Report For Glucose Reading</h2></center>
+<%= render "report_form", :reports => @reports %>
+</div>
+  

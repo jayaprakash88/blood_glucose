@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped ng-scope">
+<h1>Listing Patients</h1>
+<div class="col-md-9 text-right navbar-right pagination-links"><%= will_paginate @patients %></div>
+  <thead>
+    <tr>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "address","Address" %></th>
+      <th><%= sortable "age","Age"%></th>
+      <th>Phone no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.phone_no %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Enter Reading', glucose_reading_path(patient.id) ,:class => "btn btn-success"%></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'Daily Report', daliy_report_patients_path %>
+<%= link_to 'Date Wise Report', monthly_report_patients_path %>
+<%= link_to 'Month Wise Report', month_wise_report_patients_path %>

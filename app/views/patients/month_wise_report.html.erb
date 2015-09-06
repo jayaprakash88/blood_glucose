@@ -1,0 +1,52 @@
+
+
+<%= javascript_include_tag "application" %>
+<%= form_tag find_month_wise_report_patients_path,:method => :get,:remote => true do %>
+
+<table class="table table-responsive">
+<tr>
+<div class="form-group">
+   <%= label "start","date", "Start Date:",:class=>"control-label col-md-2" %>
+	 <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                    <%=select_month(Date.today, :field_name => 'month', :prefix => 'timer')%>
+                  </div>
+                   </div>
+                    </div>
+                     </div>
+                     </div>
+                    <div class="form-group">
+   <%= label "end","date", "End Date:",:class=>"control-label col-md-2" %>
+                     <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                    <%=select_year(Date.today, :field_name => 'year', :prefix => 'timer')%>
+
+                  </div>
+                   </div>
+                    </div>
+                     </div>
+                      </div>
+                     </tr>
+                     <tr>
+                     <div class="form-group">
+                       <div class="col-md-4">
+          <div class="row">
+              <div class="col-xs-5">
+                  <div class="input-group">
+                     <%= submit_tag "search" ,:class => "btn btn-success navbar-right"%>
+                     </div>
+                   </div>
+                    </div></div>
+                     </div></tr>
+</table>
+  
+<% end %>
+<br/><br/><br/>
+<div id="alter_select" class="row">
+<center><h2>Month Report For Glucose Reading</h2></center>
+<%= render "report_form", :reports => @reports %>
+</div>
